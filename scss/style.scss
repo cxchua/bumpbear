@@ -1,0 +1,97 @@
+html {
+  text-align: center;
+}
+
+body {
+  display:inline-block;
+  width:100vw;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+ul {
+  text-align: center;
+  padding:0;
+  margin: 0 auto;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  padding:1vw;
+  margin:0 auto;
+  font-size: 1em;
+}
+
+#panel {
+  height:20vh;
+  width:95vw;
+  max-width: 700px;
+  border:1px solid black;
+  margin: 0 auto;
+  display:flex;
+  align-items: center;
+}
+
+#screen {
+  height:70vh;
+  min-height:300px;
+  width:95vw;
+  max-width: 700px;
+  border:1px solid black;
+  margin: 0 auto;
+  position:relative;
+}
+
+p {
+  padding:2vw;
+  font-size: 0.8em;
+}
+
+#bottom {
+  height:10vh;
+  width:95vw;
+  max-width: 700px;
+  border:1px solid black;
+  margin: 0 auto;
+}
+
+#p1 {
+  height:20vh;
+  min-height:100px;
+  width:10vw;
+  max-width: 75px;
+  position:absolute;
+  top:50vh;
+  left: 10px;
+  background-color: red;
+  z-index: 200;
+}
+
+#p2 {
+  height:20vh;
+  min-height:100px;
+  width:10vw;
+  max-width: 75px;
+  position:absolute;
+  top:50vh;
+  right: 10px;
+  background-color: green;
+  z-index: 200;
+}
+
+.p1Ball {
+  height:5vh;
+  width:5vw;
+  background-color: lighten(red,30%);
+  position:absolute;
+  z-index:-200;
+}
+
+.p2Ball {
+  height:5vh;
+  width:5vw;
+  background-color: lighten(green,30%);
+  position:absolute;
+  z-index:-200;
+}
