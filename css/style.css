@@ -38,8 +38,37 @@ li {
   position: relative; }
 
 p {
-  padding: 2vw;
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  width: 80vw;
+  max-width: 600px;
+  margin: 0 auto; }
+
+h1 {
+  height: 6vh;
+  padding-top: 50px;
+  min-height: 130px;
+  width: 80vw;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); }
+
+.p1ActionAlert {
+  background-color: #cc0000;
+  color: white; }
+
+.p2ActionAlert {
+  background-color: #004d00;
+  color: white; }
+
+.fireballCollisionAlert {
+  background-color: purple;
+  color: white; }
+
+h2 {
+  font-size: 1em;
+  color: white; }
 
 #bottom {
   height: 10vh;
@@ -72,14 +101,14 @@ p {
 
 .p1Ball {
   height: 5vh;
-  width: 5vw;
+  width: 3vw;
   background-color: #ff9999;
   position: absolute;
   z-index: -200; }
 
 .p2Ball {
   height: 5vh;
-  width: 5vw;
+  width: 3vw;
   background-color: #1aff1a;
   position: absolute;
   z-index: -200; }
