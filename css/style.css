@@ -70,6 +70,10 @@ h2 {
   font-size: 1em;
   color: white; }
 
+h3 {
+  font-size: 1em;
+  color: black; }
+
 #bottom {
   height: 10vh;
   width: 95vw;
