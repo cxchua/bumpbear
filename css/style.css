@@ -58,8 +58,16 @@ h1 {
   background-color: #cc0000;
   color: white; }
 
+.p1ActionMildAlert {
+  background-color: #ffcccc;
+  color: white; }
+
 .p2ActionAlert {
   background-color: #004d00;
+  color: white; }
+
+.p2ActionMildAlert {
+  background-color: #4dff4d;
   color: white; }
 
 .fireballCollisionAlert {
@@ -106,14 +114,14 @@ h3 {
 .p1Ball {
   height: 5vh;
   width: 3vw;
-  background-color: #ff9999;
+  background-color: maroon;
   position: absolute;
   z-index: -200; }
 
 .p2Ball {
   height: 5vh;
   width: 3vw;
-  background-color: #1aff1a;
+  background-color: #003400;
   position: absolute;
   z-index: -200; }
 

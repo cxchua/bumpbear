@@ -182,6 +182,15 @@ $(function() {
   x = setInterval(plusDisplaceP1,ballTime);
   function plusDisplaceP1(){
   $('.p1Ball').css("left", "+=15");}
+  $('h1').html("P1 Fireball unleashed!");
+  $('h1').addClass('p1ActionMildAlert');
+  setTimeout(function () {
+      $('h1').removeClass('p1ActionMildAlert');
+  }, 500);
+  $('#screen').addClass('p1ActionMildAlert');
+  setTimeout(function () {
+      $('#screen').removeClass('p1ActionMildAlert');
+  }, 500);
   console.log("d key done!");
   }
   //P1 d button with inadequate power - failed fast ball + lose power!
@@ -229,6 +238,15 @@ $(function() {
   y = setInterval(plusDisplaceP2,ballTime);
   function plusDisplaceP2(){
   $('.p2Ball').css("left", "-=15");}
+  $('h1').html("P2 Fireball unleashed!");
+  $('h1').addClass('p2ActionMildAlert');
+  setTimeout(function () {
+      $('h1').removeClass('p2ActionMildAlert');
+  }, 500);
+  $('#screen').addClass('p2ActionMildAlert');
+  setTimeout(function () {
+      $('#screen').removeClass('p2ActionMildAlert');
+  }, 500);
   console.log("' key done!");
   }
   //P2 ' button with inadequate power - failed fast ball + lose power!
