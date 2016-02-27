@@ -171,7 +171,7 @@ $(function() {
   $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
   }
   //P1 d button to unleash a fast ball
-  if ((e.keyCode == 68)&&(p1Points > powerReady)) {
+  if ((e.keyCode == 68)&&(p1Points >= powerReady)) {
   console.log("d key pressed!");
   p1Points = 0;
   $('.p1Ball').remove();
@@ -218,7 +218,7 @@ $(function() {
   $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
   }
   //P2 ' button to unleash a fast ball
-  if ((e.keyCode == 222)&&(p2Points > powerReady)) {
+  if ((e.keyCode == 222)&&(p2Points >= powerReady)) {
   console.log("' key pressed!");
   p2Points = 0;
   $('.p2Ball').remove();
