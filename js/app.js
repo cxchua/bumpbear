@@ -12,7 +12,7 @@ var p1Hits = 0;
 var p2Hits = 0;
 var pointsToWin = 5;
 var powerReady = 20;
-var ballTime = 15;
+var ballTime = 10;
 
 // Check if P1 Hits
 function collisionP1Wins($div1, $div2) {
