@@ -344,7 +344,7 @@ $(function() {
     clearInterval(right2);
     right2 = setInterval(rightP2,10);
     function rightP2() {
-      if (($("#p2").position().left + $("#p2").width()) >= ($("#screen").width() - 15)) {
+      if (($("#p2").position().left + $("#p2").width()) >= ($("#screen").width() - 10)) {
         return console.log("end of screen on right!")
         }
       else {
