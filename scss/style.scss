@@ -4,8 +4,7 @@ html {
 
 body {
   display:inline-block;
-  width:100vw;
-  max-width: 700px;
+  width:710px;
   margin: 0 auto;
 }
 
@@ -18,15 +17,14 @@ ul {
 li {
   display: inline-block;
   list-style-type: none;
-  padding:1vw;
+  padding:5px;
   margin:0 auto;
   font-size: 1em;
 }
 
 #panel {
   height:20vh;
-  width:95vw;
-  max-width: 700px;
+  width: 700px;
   border:1px solid black;
   margin: 0 auto;
   display:flex;
@@ -36,8 +34,7 @@ li {
 #screen {
   height:70vh;
   min-height:300px;
-  width:95vw;
-  max-width: 700px;
+  width: 700px;
   border:1px solid black;
   margin: 0 auto;
   position:relative;
@@ -46,8 +43,7 @@ li {
 
 p {
   font-size: 0.8em;
-  width:80vw;
-  max-width: 600px;
+  width:600px;
   margin: 0 auto;
 }
 
@@ -55,8 +51,7 @@ h1 {
   height:6vh;
   padding-top: 50px;
   min-height: 130px;
-  width:80vw;
-  max-width: 600px;
+  width: 600px;
   margin: 0 auto;
   font-size: 3em;
   color: rgba(255,255,255,0);
@@ -100,8 +95,7 @@ h3 {
 
 #bottom {
   height:10vh;
-  width:95vw;
-  max-width: 700px;
+  width: 700px;
   border:1px solid black;
   margin: 0 auto;
 }
@@ -109,8 +103,7 @@ h3 {
 #p1 {
   height:20vh;
   min-height:100px;
-  width:10vw;
-  max-width: 75px;
+  width: 60px;
   position:absolute;
   top:50vh;
   left: 20px;
@@ -121,18 +114,17 @@ h3 {
 #p2 {
   height:20vh;
   min-height:100px;
-  width:10vw;
-  max-width: 75px;
+  width:60px;
   position:absolute;
   top:50vh;
-  left: 610px;
+  left: 620px;
   background-color: green;
   z-index: 200;
 }
 
 .p1Ball {
   height:5vh;
-  width:3vw;
+  width:30px;
   background-color: darken(red,25%);
   position:absolute;
   z-index:-200;
@@ -140,7 +132,7 @@ h3 {
 
 .p2Ball {
   height:5vh;
-  width:3vw;
+  width:30px;
   background-color: darken(green,15%);
   position:absolute;
   z-index:-200;
