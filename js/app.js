@@ -137,8 +137,6 @@ function collisionFireballs($div1, $div2) {
   else {
     $('.p1Ball').remove();
     $('.p2Ball').remove();
-    clearInterval(x);
-    clearInterval(y);
     $('h1').html("BOOMZ!!");
     $('h1').addClass('fireballCollisionAlert');
     setTimeout(function () {
@@ -163,10 +161,10 @@ $(function() {
   window.setInterval(p2Wins,100);
 
   window.setInterval(function() {
-    collisionP1Wins($('#p2'), $('.p1Ball'));},70);
+    collisionP1Wins($('.p2'), $('.p1Ball'));},70);
 
    window.setInterval(function() {
-    collisionP2Wins($('#p1'), $('.p2Ball'));},70);
+    collisionP2Wins($('.p1'), $('.p2Ball'));},70);
 
     window.setInterval(function() {
      collisionFireballs($('.p1Ball'), $('.p2Ball'));},5);
@@ -198,18 +196,26 @@ $(function() {
   $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
   $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
   $('.p1StoredPointsBar').html(" ");
+  $(".p1").removeClass("steadyRight");
+  $(".p1").addClass("shootRight");
   clearInterval(x);
-  $('#p1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
-  $('.p1Ball').css({top:20, left:0, position:'absolute'});
+  $('.p1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
+  $('.p1Ball').addClass("hadokenRight");
+  $('.p1Ball').css({top:0, left:0, position:'absolute'});
   x = setInterval(plusDisplaceP1,ballTime);
   function plusDisplaceP1(){
     ballInAir1 ++;
-    if (ballInAir1 > 50) {
+    if (ballInAir1 <10) {
+      return
+    }
+    else if (ballInAir1 > 50) {
       clearInterval(x);
       $('.p1Ball').remove();
+      $(".p1").removeClass("shootRight");
+      $(".p1").addClass("steadyRight");
       ballInAir1 = 0;
     }
-    else if (($("#p1").offset().left)<=($("#p2").offset().left)){
+    else if (($(".p1").offset().left)<=($(".p2").offset().left)){
     $('.p1Ball').css("left", "+=15");}
     else {$('.p1Ball').css("left", "-=15");}
     }
@@ -235,19 +241,23 @@ $(function() {
   // P1 w button to jump
   if (e.keyCode == 87){
     console.log("w key pressed!");
+    $(".p1").removeClass("steadyRight");
+    $(".p1").addClass("jumpRight");
     clearInterval(h1);
     h1 = setInterval(jumpP1,10);
     function jumpP1() {
       blah1 += 1;
       if(blah1 < 40){
-          $("#p1").css("top", "-=7");
+          $(".p1").css("top", "-=7");
           }
       else if ((blah1 >= 40)&&(blah1 < 79)) {
-          $("#p1").css("top", "+=7");
+          $(".p1").css("top", "+=7");
           }
       else if (blah1 >= 79) {
           clearInterval(h1);
           blah1 = 0;
+          $(".p1").removeClass("jumpRight");
+          $(".p1").addClass("steadyRight");
           }
     }
   }
@@ -256,15 +266,19 @@ $(function() {
     console.log("d key pressed!");
     clearInterval(right1);
     right1 = setInterval(rightP1,10);
+    $(".p1").removeClass("steadyRight");
+    $(".p1").addClass("walkingRight");
     function rightP1() {
-      if (($("#p1").position().left + $("#p1").width()) >= ($("#screen").width() - 10)) {
+      if (($(".p1").position().left + $(".p1").width()) >= ($("#screen").width() - 10)) {
         return console.log("end of screen on right!")
         }
       else {
-        $("#p1").css("left","+=5");
+        $(".p1").css("left","+=5");
         $(window).keyup(function(e) {
         if (e.keyCode == 68){
           console.log("d keyup logged");
+          $(".p1").removeClass("walkingRight");
+          $(".p1").addClass("steadyRight");
           clearInterval(right1);
           }
           })
@@ -276,15 +290,19 @@ $(function() {
       console.log("a key pressed!");
       clearInterval(left1);
       left1 = setInterval(leftP1,10);
+      $(".p1").removeClass("steadyRight");
+      $(".p1").addClass("walkingLeft");
       function leftP1() {
-        if ($("#p1").position().left <= 10) {
+        if ($(".p1").position().left <= 10) {
           return console.log("end of screen on left!")
           }
         else {
-          $("#p1").css("left","-=5");
+          $(".p1").css("left","-=5");
           $(window).keyup(function(e) {
           if (e.keyCode == 65){
             console.log("a keyup logged");
+            $(".p1").removeClass("walkingLeft");
+            $(".p1").addClass("steadyRight");
             clearInterval(left1);
             }
             })
@@ -318,17 +336,19 @@ $(function() {
   $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
   $('.p2StoredPointsBar').html(" ");
   clearInterval(y);
-  $('#p2').append("<div class='p2Ball' height='5vh' width='3vw'></div>");
-  $('.p2Ball').css({top:20, right:0, position:'absolute'});
+  $('.p2').append("<div class='p2Ball' height='5vh' width='3vw'></div>");
+  $('.p2Ball').css({top:0, right:0, position:'absolute'});
   y = setInterval(plusDisplaceP2,ballTime);
   function plusDisplaceP2(){
     ballInAir2 ++;
+    if (ballInAir2 <10) {
+      return}
     if (ballInAir2 > 50) {
       clearInterval(y);
       $('.p2Ball').remove();
       ballInAir2 = 0;
     }
-    else if (($("#p1").offset().left)<=($("#p2").offset().left)){
+    else if (($(".p1").offset().left)<=($(".p2").offset().left)){
     $('.p2Ball').css("left", "-=15");}
     else {$('.p2Ball').css("left", "+=15");}
     }
@@ -341,6 +361,7 @@ $(function() {
   setTimeout(function () {
       $('#screen').removeClass('p2ActionMildAlert');
   }, 500);
+
   console.log("? key done!");
   }
   //P2 ; button with inadequate power - failed fast ball + lose power!
@@ -359,10 +380,10 @@ $(function() {
     function jumpP2() {
       blah2 += 1;
       if(blah2 < 40){
-          $("#p2").css("top", "-=7");
+          $(".p2").css("top", "-=7");
           }
       else if ((blah2 >= 40)&&(blah2 < 79)) {
-          $("#p2").css("top", "+=7");
+          $(".p2").css("top", "+=7");
           }
       else if (blah2 >= 79) {
           clearInterval(h2);
@@ -376,11 +397,11 @@ $(function() {
     clearInterval(right2);
     right2 = setInterval(rightP2,10);
     function rightP2() {
-      if (($("#p2").position().left + $("#p2").width()) >= ($("#screen").width() - 10)) {
+      if (($(".p2").position().left + $(".p2").width()) >= ($("#screen").width() - 10)) {
         return console.log("end of screen on right!")
         }
       else {
-        $("#p2").css("left","+=5");
+        $(".p2").css("left","+=5");
         $(window).keyup(function(e) {
         if (e.keyCode == 39){
           console.log("right keyup logged");
@@ -396,12 +417,12 @@ $(function() {
       clearInterval(left2);
       left2 = setInterval(leftP2,10);
       function leftP2() {
-        console.log($("#p2").position().left)
-        if ($("#p2").position().left <= 10) {
+        console.log($(".p2").position().left)
+        if ($(".p2").position().left <= 10) {
           return console.log("end of screen on left!")
           }
         else {
-          $("#p2").css("left","-=5");
+          $(".p2").css("left","-=5");
           $(window).keyup(function(e) {
           if (e.keyCode == 37){
             console.log("left keyup logged");

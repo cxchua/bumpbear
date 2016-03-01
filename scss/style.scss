@@ -248,21 +248,20 @@ h3 {
   margin: 0 auto;
 }
 
-#p1 {
-  height:20vh;
-  min-height:100px;
-  width: 60px;
+.p1 {
+  height:80px;
+  width:70px;
   position:absolute;
   top:50vh;
   left: 20px;
-  background-color: red;
   z-index: 200;
+  background-image:url('http://front-back.com/wp-content/uploads/2013/01/ken.png');
+  margin: 0 auto;
 }
 
-#p2 {
-  height:20vh;
-  min-height:100px;
-  width:60px;
+.p2 {
+  height:80px;
+  width:70px;
   position:absolute;
   top:50vh;
   left: 620px;
@@ -271,16 +270,16 @@ h3 {
 }
 
 .p1Ball {
-  height:5vh;
-  width:30px;
-  background-color: darken(red,25%);
+  height:80px;
+  width:70px;
+  background-image:url('http://front-back.com/wp-content/uploads/2013/01/ken.png');
   position:absolute;
   z-index:-200;
 }
 
 .p2Ball {
-  height:5vh;
-  width:30px;
+  height:80px;
+  width:70px;
   background-color: darken(green,15%);
   position:absolute;
   z-index:-200;
@@ -289,4 +288,65 @@ h3 {
 .p2BarAlert {
   background-color: black;
   color:white;
+}
+
+// Animations below
+
+// @mixin graphics($action,$steps,$graphicNumber,$graphicLoopTime){
+//   .#{$action} {
+//     @content;
+//     animation:$action $graphicLoopTime steps($steps);
+//   }
+//   @keyframes #{$action} {
+//     from { background-position: 0px -80*($graphicNumber - 1) }
+//     to { background-position: -70*$steps -80*($graphicNumber - 1) }
+//   }
+// }
+
+.walkingRight {
+          animation: walkingRight 0.4s steps(5) infinite;
+}
+@keyframes walkingRight {
+  from { background-position: 0px -240px }
+  to { background-position: -350px -240px }
+}
+
+.walkingLeft {
+          animation: walkingLeft 0.4s steps(5) infinite;
+}
+@keyframes walkingLeft {
+  from { background-position: -350px -240px }
+  to { background-position: 0px -240px }
+}
+
+.steadyRight {
+          animation: steady 0.4s steps(4) infinite;
+}
+@keyframes steady {
+  from { background-position: 0px -80px }
+  to { background-position: -280px -80px }
+}
+
+.shootRight {
+          animation: shootRight 0.5s steps(4) infinite;
+}
+@keyframes shootRight {
+  from { background-position: 0px 0px }
+  to { background-position: -280px 0px }
+}
+
+.jumpRight {
+          animation: jumpRight 1s steps(7) infinite;
+}
+@keyframes jumpRight {
+  from { background-position: 0px -640px }
+  to { background-position: -490px -640px }
+}
+
+.hadokenRight {
+          animation: hadokenRight 0.5s steps(2) infinite;
+}
+@keyframes hadokenRight {
+  from { background-position: 0px -320px }
+  to { background-position: -140px -320px }
 }
