@@ -39,6 +39,8 @@ function collisionP1Wins($div1, $div2) {
   else {
     p1Hits += 1;
     $('#p1HitsHeader').html("P1 Hits: " + p1Hits);
+    $('.p2LifeBar').width(168-(168/pointsToWin)*p1Hits);
+    $('.p1Ball').remove();
     $('h1').html("P1 lands a hit!");
     $('h1').addClass('p1ActionAlert');
     setTimeout(function () {
@@ -86,6 +88,8 @@ function collisionP2Wins($div1, $div2) {
   else {
     p2Hits += 1;
     $('#p2HitsHeader').html("P2 Hits: " + p2Hits);
+    $('.p1LifeBar').width(168-(168/pointsToWin)*p2Hits);
+    $('.p2Ball').remove();
     $('h1').html("P2 lands a hit!");
     $('h1').addClass('p2ActionAlert');
     setTimeout(function () {
@@ -159,13 +163,13 @@ $(function() {
   window.setInterval(p2Wins,100);
 
   window.setInterval(function() {
-    collisionP1Wins($('#p2'), $('.p1Ball'));},80);
+    collisionP1Wins($('#p2'), $('.p1Ball'));},70);
 
    window.setInterval(function() {
-    collisionP2Wins($('#p1'), $('.p2Ball'));},80);
+    collisionP2Wins($('#p1'), $('.p2Ball'));},70);
 
     window.setInterval(function() {
-     collisionFireballs($('.p1Ball'), $('.p2Ball'));},10);
+     collisionFireballs($('.p1Ball'), $('.p2Ball'));},5);
 
   // CLICK BUTTONS
   $(window).keydown(function(e) {
@@ -175,6 +179,16 @@ $(function() {
   console.log("r or t key pressed!");
   p1Points += 1;
   $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
+  if(p1Points <= powerReady) {
+    $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
+  }
+  else if(p1Points > powerReady){
+    $('.p1StoredPointsBar').html("READY!!");
+    $('.p1StoredPointsBar').addClass('p1ActionAlert');
+    setTimeout(function () {
+        $('.p1StoredPointsBar').removeClass('p1ActionAlert');
+    }, 100);
+    }
   }
   //P1 y button to unleash a fast ball
   if ((e.keyCode == 89)&&(p1Points >= powerReady)) {
@@ -182,6 +196,8 @@ $(function() {
   p1Points = 0;
   $('.p1Ball').remove();
   $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
+  $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
+  $('.p1StoredPointsBar').html(" ");
   clearInterval(x);
   $('#p1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
   $('.p1Ball').css({top:20, left:0, position:'absolute'});
@@ -213,6 +229,8 @@ $(function() {
     console.log("y key pressed, but lacking points!");
     p1Points = 0;
     $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
+    $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
+    $('.p1StoredPointsBar').html(" ");
   }
   // P1 w button to jump
   if (e.keyCode == 87){
@@ -280,6 +298,16 @@ $(function() {
   console.log("< or > key pressed!");
   p2Points += 1;
   $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
+    if(p2Points <= powerReady) {
+      $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
+    }
+    else if(p2Points > powerReady){
+      $('.p2StoredPointsBar').html("READY!!");
+      $('.p2StoredPointsBar').addClass('p2ActionAlert');
+      setTimeout(function () {
+          $('.p2StoredPointsBar').removeClass('p2ActionAlert');
+      }, 100);
+    }
   }
   //P2 / button to unleash a fast ball
   if ((e.keyCode == 191)&&(p2Points >= powerReady)) {
@@ -287,6 +315,8 @@ $(function() {
   p2Points = 0;
   $('.p2Ball').remove();
   $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
+  $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
+  $('.p2StoredPointsBar').html(" ");
   clearInterval(y);
   $('#p2').append("<div class='p2Ball' height='5vh' width='3vw'></div>");
   $('.p2Ball').css({top:20, right:0, position:'absolute'});
@@ -318,6 +348,8 @@ $(function() {
     console.log("? key pressed but lacking points!");
     p2Points = 0;
     $('#p2PointsHeader').html("P1 Stored Points: " + p2Points);
+    $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
+    $('.p2StoredPointsBar').html(" ");
   }
   // P2 "up" button to jump
   if (e.keyCode == 38){

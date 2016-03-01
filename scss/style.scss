@@ -22,6 +22,20 @@ li {
   font-size: 1em;
 }
 
+h4 {
+  font-size: 2.2em;
+  margin:0 auto;
+  display:table-cell;
+  vertical-align: middle;
+}
+
+h5 {
+  font-size: 1em;
+  margin:0 auto;
+  display:table-cell;
+  vertical-align: middle;
+}
+
 #panel {
   height:20vh;
   width: 700px;
@@ -29,6 +43,140 @@ li {
   margin: 0 auto;
   display:flex;
   align-items: center;
+}
+
+.stats {
+  border: 1px solid black;
+}
+
+#panelLeft{
+  width:348px;
+  height:20vh;
+  display:flex;
+  align-items: center;
+}
+
+#p1Holder {
+  height:20vh;
+  width:100px;
+  display:table;
+  overflow: hidden;
+}
+
+#p1Stats {
+  height:20vh;
+  width:244px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#p1StoredPoints {
+  height:10vh;
+  width:242px;
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+#p1StoredPointsLabel {
+  height:10vh;
+  width:70px;
+  display:table;
+  overflow: hidden;
+}
+
+.p1StoredPointsBar {
+  height:10vh;
+  width:8px; //168 is the final
+  background-color: lighten(red,20%);
+  font-size:2em;
+  line-height:10vh;
+  vertical-align: center;
+}
+
+#p1Life {
+  height:10vh;
+  width:242px;
+  display:flex;
+  align-items: center;
+}
+
+#p1LifeLabel {
+  height:10vh;
+  width:70px;
+  display:table;
+  overflow: hidden;
+}
+
+.p1LifeBar {
+  height:10vh;
+  width:168px;
+  background-color: lighten(red,20%);
+}
+
+#panelRight{
+  width:348px;
+  height: 20vh;
+  display:flex;
+  align-items: center;
+}
+
+#p2Holder {
+  height:20vh;
+  width:100px;
+  display:table;
+  overflow: hidden;
+}
+
+#p2Stats {
+  height:20vh;
+  width:244px;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#p2StoredPoints {
+  height:10vh;
+  width:242px;
+  display:flex;
+  align-items: center;
+}
+
+#p2StoredPointsLabel {
+  height:10vh;
+  width:70px;
+  display:table;
+  overflow: hidden;
+}
+
+.p2StoredPointsBar {
+  height:10vh;
+  width:8px; //168 is the final
+  background-color: lighten(green,20%);
+  font-size:2em;
+  line-height:10vh;
+}
+
+#p2Life {
+  height:10vh;
+  width:242px;
+  display:flex;
+  align-items: center;
+}
+
+#p2LifeLabel {
+  height:10vh;
+  width:70px;
+  display:table;
+  overflow: hidden;
+}
+
+.p2LifeBar {
+  height:10vh;
+  width:168px;
+  background-color: lighten(green,20%);
 }
 
 #screen {
@@ -136,4 +284,9 @@ h3 {
   background-color: darken(green,15%);
   position:absolute;
   z-index:-200;
+}
+
+.p2BarAlert {
+  background-color: black;
+  color:white;
 }
