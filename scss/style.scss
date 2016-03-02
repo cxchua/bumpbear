@@ -1,8 +1,32 @@
-html {
+body {
+  display:flex;
+  align-items: center;
+  flex-direction: row;
   text-align: center;
+  justify-content: center;
 }
 
-body {
+#p1IHolder{
+  width:350px;
+  height:100vh;
+  border:3px solid red;
+}
+
+#p1Instructions {
+  margin-top: 40vh;
+}
+
+#p2IHolder{
+  width:350px;
+  height:100vh;
+  border: 3px solid green;
+}
+
+#p2Instructions {
+  margin-top: 40vh;
+}
+
+#gameSpace {
   display:inline-block;
   width:710px;
   margin: 0 auto;
@@ -186,18 +210,19 @@ h5 {
   border:1px solid black;
   margin: 0 auto;
   position:relative;
-
+  background-image:url('./background_throne.gif');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
 }
 
 p {
   font-size: 0.8em;
-  width:600px;
   margin: 0 auto;
 }
 
 h1 {
   height:6vh;
-  padding-top: 50px;
+  padding-top: 20vh;
   min-height: 130px;
   width: 600px;
   margin: 0 auto;
@@ -216,6 +241,10 @@ h1 {
   color:white;
 }
 
+.p1BackgroundActionAlert {
+  background: darken(red,10%);
+}
+
 .p2ActionAlert {
   background-color: darken(green,10%);
   color:white;
@@ -226,6 +255,10 @@ h1 {
   color:white;
 }
 
+.p2BackgroundActionAlert {
+  background: darken(green,10%);
+}
+
 .fireballCollisionAlert {
   background-color: purple;
   color:white;
@@ -234,6 +267,7 @@ h1 {
 h2 {
   font-size: 1em;
   color: white;
+  margin-top: -30px;
 }
 
 h3 {
@@ -255,7 +289,7 @@ h3 {
   top:50vh;
   left: 20px;
   z-index: 200;
-  background-image:url('http://front-back.com/wp-content/uploads/2013/01/ken.png');
+  background-image:url('./ken.png');
   margin: 0 auto;
 }
 
@@ -265,14 +299,14 @@ h3 {
   position:absolute;
   top:50vh;
   left: 620px;
-  background-color: green;
+  background-image:url('./ken.png');
   z-index: 200;
 }
 
 .p1Ball {
   height:80px;
   width:70px;
-  background-image:url('http://front-back.com/wp-content/uploads/2013/01/ken.png');
+  background-image:url('./ken.png');
   position:absolute;
   z-index:-200;
 }
@@ -280,13 +314,17 @@ h3 {
 .p2Ball {
   height:80px;
   width:70px;
-  background-color: darken(green,15%);
+  background-image:url('./ken.png');
   position:absolute;
   z-index:-200;
 }
 
 .p2BarAlert {
   background-color: black;
+  color:white;
+}
+
+.h1Alert {
   color:white;
 }
 
@@ -312,10 +350,10 @@ h3 {
 }
 
 .walkingLeft {
-          animation: walkingLeft 0.4s steps(5) infinite;
+          animation: walkingLeft 0.4s steps(4) infinite;
 }
 @keyframes walkingLeft {
-  from { background-position: -350px -240px }
+  from { background-position: -280px -240px }
   to { background-position: 0px -240px }
 }
 

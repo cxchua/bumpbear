@@ -1,7 +1,27 @@
-html {
-  text-align: center; }
-
 body {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center; }
+
+#p1IHolder {
+  width: 350px;
+  height: 100vh;
+  border: 3px solid red; }
+
+#p1Instructions {
+  margin-top: 40vh; }
+
+#p2IHolder {
+  width: 350px;
+  height: 100vh;
+  border: 3px solid green; }
+
+#p2Instructions {
+  margin-top: 40vh; }
+
+#gameSpace {
   display: inline-block;
   width: 710px;
   margin: 0 auto; }
@@ -159,16 +179,18 @@ h5 {
   width: 700px;
   border: 1px solid black;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  background-image: url("./background_throne.gif");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
 
 p {
   font-size: 0.8em;
-  width: 600px;
   margin: 0 auto; }
 
 h1 {
   height: 6vh;
-  padding-top: 50px;
+  padding-top: 20vh;
   min-height: 130px;
   width: 600px;
   margin: 0 auto;
@@ -184,6 +206,9 @@ h1 {
   background-color: #ffcccc;
   color: white; }
 
+.p1BackgroundActionAlert {
+  background: #cc0000; }
+
 .p2ActionAlert {
   background-color: #004d00;
   color: white; }
@@ -192,13 +217,17 @@ h1 {
   background-color: #4dff4d;
   color: white; }
 
+.p2BackgroundActionAlert {
+  background: #004d00; }
+
 .fireballCollisionAlert {
   background-color: purple;
   color: white; }
 
 h2 {
   font-size: 1em;
-  color: white; }
+  color: white;
+  margin-top: -30px; }
 
 h3 {
   font-size: 1em;
@@ -217,7 +246,7 @@ h3 {
   top: 50vh;
   left: 20px;
   z-index: 200;
-  background-image: url("http://front-back.com/wp-content/uploads/2013/01/ken.png");
+  background-image: url("./ken.png");
   margin: 0 auto; }
 
 .p2 {
@@ -226,25 +255,28 @@ h3 {
   position: absolute;
   top: 50vh;
   left: 620px;
-  background-color: green;
+  background-image: url("./ken.png");
   z-index: 200; }
 
 .p1Ball {
   height: 80px;
   width: 70px;
-  background-image: url("http://front-back.com/wp-content/uploads/2013/01/ken.png");
+  background-image: url("./ken.png");
   position: absolute;
   z-index: -200; }
 
 .p2Ball {
   height: 80px;
   width: 70px;
-  background-color: #003400;
+  background-image: url("./ken.png");
   position: absolute;
   z-index: -200; }
 
 .p2BarAlert {
   background-color: black;
+  color: white; }
+
+.h1Alert {
   color: white; }
 
 .walkingRight {
@@ -256,11 +288,11 @@ h3 {
   to {
     background-position: -350px -240px; } }
 .walkingLeft {
-  animation: walkingLeft 0.4s steps(5) infinite; }
+  animation: walkingLeft 0.4s steps(4) infinite; }
 
 @keyframes walkingLeft {
   from {
-    background-position: -350px -240px; }
+    background-position: -280px -240px; }
   to {
     background-position: 0px -240px; } }
 .steadyRight {

@@ -41,14 +41,14 @@ function collisionP1Wins($div1, $div2) {
     $('#p1HitsHeader').html("P1 Hits: " + p1Hits);
     $('.p2LifeBar').width(168-(168/pointsToWin)*p1Hits);
     $('.p1Ball').remove();
-    $('h1').html("P1 lands a hit!");
-    $('h1').addClass('p1ActionAlert');
+    $('h1').html("P1 LANDS A HIT!");
+    $('h1').addClass('h1Alert');
+    $('#p1IHolder').addClass('p1ActionAlert');
+    $('#p2IHolder').addClass('p1ActionAlert');
     setTimeout(function () {
-        $('h1').removeClass('p1ActionAlert');
-    }, 500);
-    $('#screen').addClass('p1ActionAlert');
-    setTimeout(function () {
-        $('#screen').removeClass('p1ActionAlert');
+        $('h1').removeClass('h1Alert');
+        $('#p1IHolder').removeClass('p1ActionAlert');
+        $('#p2IHolder').removeClass('p1ActionAlert');
     }, 500);
   }
 }
@@ -90,14 +90,14 @@ function collisionP2Wins($div1, $div2) {
     $('#p2HitsHeader').html("P2 Hits: " + p2Hits);
     $('.p1LifeBar').width(168-(168/pointsToWin)*p2Hits);
     $('.p2Ball').remove();
-    $('h1').html("P2 lands a hit!");
-    $('h1').addClass('p2ActionAlert');
+    $('h1').html("P2 LANDS A HIT!");
+    $('h1').addClass('h1Alert');
+    $('#p1IHolder').addClass('p2ActionAlert');
+    $('#p2IHolder').addClass('p2ActionAlert');
     setTimeout(function () {
-        $('h1').removeClass('p2ActionAlert');
-    }, 500);
-    $('#screen').addClass('p2ActionAlert');
-    setTimeout(function () {
-        $('#screen').removeClass('p2ActionAlert');
+        $('h1').removeClass('h1Alert');
+        $('#p1IHolder').removeClass('p2ActionAlert');
+        $('#p2IHolder').removeClass('p2ActionAlert');
     }, 500);
   }
 }
@@ -138,23 +138,40 @@ function collisionFireballs($div1, $div2) {
     $('.p1Ball').remove();
     $('.p2Ball').remove();
     $('h1').html("BOOMZ!!");
-    $('h1').addClass('fireballCollisionAlert');
+    $('h1').addClass('h1Alert');
+    $('#p1IHolder').addClass('fireballCollisionAlert');
+    $('#p2IHolder').addClass('fireballCollisionAlert');
     setTimeout(function () {
-        $('h1').removeClass('fireballCollisionAlert');
-    }, 500);
-    $('#screen').addClass('fireballCollisionAlert');
-    setTimeout(function () {
-        $('#screen').removeClass('fireballCollisionAlert');
+        $('h1').removeClass('h1Alert');
+        $('#p1IHolder').removeClass('fireballCollisionAlert');
+        $('#p2IHolder').removeClass('fireballCollisionAlert');
     }, 500);
   }
+}
+
+// Check facing side
+
+function checkDirection() {
+    if (($(".p1").offset().left)>=($(".p2").offset().left)){
+      $('.p1').css('transform', 'scaleX(-1)')
+      $('.p2').css('transform', 'scaleX(1)')
+    }
+    else {
+      $('.p1').css('transform', 'scaleX(1)')
+      $('.p2').css('transform', 'scaleX(-1)')
+    }
 }
 
 $(function() {
   console.log("running!");
 
-  $('#intro').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you jump your fireball jumps with you <br > First to score ' + pointsToWin + ' hits wins<br /><br /><b>Player 1:</b> <br /> R or T repeatedly to store energy points <br /> Y to shoot fireballs if stored points more than ' + powerReady + '<br /> A to go left, D to go right and W to jump <br /><br /><b>Player 2:</b> <br /> < or > repeatedly to store energy points <br /> ? to shoot fireballs if stored points more than ' + powerReady + '<br /> LEFT to go left, RIGHT to go right and UP to jump')
+  $('#p1Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you jump your fireball jumps with you <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 1:</b> <br /> R or T repeatedly to store energy points <br /> Y to shoot fireballs if stored points more than ' + powerReady + '<br /> A to go left, D to go right and W to jump')
+
+  $('#p2Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you jump your fireball jumps with you <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 2:</b> <br /> < or > repeatedly to store energy points <br /> ? to shoot fireballs if stored points more than ' + powerReady + '<br /> LEFT to go left, RIGHT to go right and UP to jump')
 
   alert('Knock your opponent out with a fireball, but first you have to store up enough energy points! If you attempt to shoot a fireball before you have '+ powerReady + ' stored points you will lose them all and have to start from zero! Duck the fireballs thrown at you by jumping out of the way, but remember if you jump your fireball jumps with you! First to score ' + pointsToWin + ' hits wins!')
+
+  window.setInterval(checkDirection,100);
 
   window.setInterval(p1Wins,100);
 
@@ -215,18 +232,18 @@ $(function() {
       $(".p1").addClass("steadyRight");
       ballInAir1 = 0;
     }
-    else if (($(".p1").offset().left)<=($(".p2").offset().left)){
-    $('.p1Ball').css("left", "+=15");}
-    else {$('.p1Ball').css("left", "-=15");}
+    // else if (($(".p1").offset().left)<=($(".p2").offset().left)){
+    // $('.p1Ball').css("left", "+=15");} REMOVED DUE TO checkDirection function
+    else {$('.p1Ball').css("left", "+=15");}
     }
-  $('h1').html("P1 Fireball unleashed!");
-  $('h1').addClass('p1ActionMildAlert');
+  $('h1').html("P1 THROWS FIREBALL!");
+  $('h1').addClass('h1Alert');
+  $('#p1IHolder').addClass('p1ActionMildAlert');
+  $('#p2IHolder').addClass('p1ActionMildAlert');
   setTimeout(function () {
-      $('h1').removeClass('p1ActionMildAlert');
-  }, 500);
-  $('#screen').addClass('p1ActionMildAlert');
-  setTimeout(function () {
-      $('#screen').removeClass('p1ActionMildAlert');
+      $('h1').removeClass('h1Alert');
+      $('#p1IHolder').removeClass('p1ActionMildAlert');
+      $('#p2IHolder').removeClass('p1ActionMildAlert');
   }, 500);
   console.log("y key done!");
   }
@@ -335,8 +352,11 @@ $(function() {
   $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
   $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
   $('.p2StoredPointsBar').html(" ");
+  $(".p2").removeClass("steadyRight");
+  $(".p2").addClass("shootRight");
   clearInterval(y);
   $('.p2').append("<div class='p2Ball' height='5vh' width='3vw'></div>");
+  $('.p2Ball').addClass("hadokenRight");
   $('.p2Ball').css({top:0, right:0, position:'absolute'});
   y = setInterval(plusDisplaceP2,ballTime);
   function plusDisplaceP2(){
@@ -346,22 +366,23 @@ $(function() {
     if (ballInAir2 > 50) {
       clearInterval(y);
       $('.p2Ball').remove();
+      $(".p2").removeClass("shootRight");
+      $(".p2").addClass("steadyRight");
       ballInAir2 = 0;
     }
-    else if (($(".p1").offset().left)<=($(".p2").offset().left)){
-    $('.p2Ball').css("left", "-=15");}
+    // else if (($(".p1").offset().left)<=($(".p2").offset().left)){
+    // $('.p2Ball').css("left", "-=15");}
     else {$('.p2Ball').css("left", "+=15");}
     }
-  $('h1').html("P2 Fireball unleashed!");
-  $('h1').addClass('p2ActionMildAlert');
+  $('h1').html("P2 THROWS FIREBALL!");
+  $('h1').addClass('h1Alert');
+  $('#p1IHolder').addClass('p2ActionMildAlert');
+  $('#p2IHolder').addClass('p2ActionMildAlert');
   setTimeout(function () {
-      $('h1').removeClass('p2ActionMildAlert');
+      $('h1').removeClass('h1Alert');
+      $('#p1IHolder').removeClass('p2ActionMildAlert');
+      $('#p2IHolder').removeClass('p2ActionMildAlert');
   }, 500);
-  $('#screen').addClass('p2ActionMildAlert');
-  setTimeout(function () {
-      $('#screen').removeClass('p2ActionMildAlert');
-  }, 500);
-
   console.log("? key done!");
   }
   //P2 ; button with inadequate power - failed fast ball + lose power!
@@ -375,6 +396,8 @@ $(function() {
   // P2 "up" button to jump
   if (e.keyCode == 38){
     console.log("up key pressed!");
+    $(".p2").removeClass("steadyRight");
+    $(".p2").addClass("jumpRight");
     clearInterval(h2);
     h2 = setInterval(jumpP2,10);
     function jumpP2() {
@@ -388,6 +411,8 @@ $(function() {
       else if (blah2 >= 79) {
           clearInterval(h2);
           blah2 = 0;
+          $(".p2").removeClass("jumpRight");
+          $(".p2").addClass("steadyRight");
           }
     }
   }
@@ -396,6 +421,8 @@ $(function() {
     console.log("right key pressed!");
     clearInterval(right2);
     right2 = setInterval(rightP2,10);
+    $(".p2").removeClass("steadyRight");
+    $(".p2").addClass("walkingRight");
     function rightP2() {
       if (($(".p2").position().left + $(".p2").width()) >= ($("#screen").width() - 10)) {
         return console.log("end of screen on right!")
@@ -405,6 +432,8 @@ $(function() {
         $(window).keyup(function(e) {
         if (e.keyCode == 39){
           console.log("right keyup logged");
+          $(".p2").removeClass("walkingRight");
+          $(".p2").addClass("steadyRight");
           clearInterval(right2);
           }
           })
@@ -416,6 +445,8 @@ $(function() {
       console.log("left key pressed!");
       clearInterval(left2);
       left2 = setInterval(leftP2,10);
+      $(".p2").removeClass("steadyRight");
+      $(".p2").addClass("walkingLeft");
       function leftP2() {
         console.log($(".p2").position().left)
         if ($(".p2").position().left <= 10) {
@@ -426,6 +457,8 @@ $(function() {
           $(window).keyup(function(e) {
           if (e.keyCode == 37){
             console.log("left keyup logged");
+            $(".p2").removeClass("walkingLeft");
+            $(".p2").addClass("steadyRight");
             clearInterval(left2);
             }
             })
