@@ -96,7 +96,7 @@ h5 {
 .p1StoredPointsBar {
   height: 10vh;
   width: 8px;
-  background-color: #ff6666;
+  background-color: #990000;
   font-size: 2em;
   line-height: 10vh;
   vertical-align: center; }
@@ -116,7 +116,7 @@ h5 {
 .p1LifeBar {
   height: 10vh;
   width: 168px;
-  background-color: #ff6666; }
+  background-color: #990000; }
 
 #panelRight {
   width: 348px;
@@ -152,7 +152,7 @@ h5 {
 .p2StoredPointsBar {
   height: 10vh;
   width: 8px;
-  background-color: #00e600;
+  background-color: #004d00;
   font-size: 2em;
   line-height: 10vh; }
 
@@ -171,7 +171,7 @@ h5 {
 .p2LifeBar {
   height: 10vh;
   width: 168px;
-  background-color: #00e600; }
+  background-color: #004d00; }
 
 #screen {
   height: 70vh;
@@ -232,7 +232,9 @@ h2 {
 
 h3 {
   font-size: 1em;
-  color: black; }
+  color: black;
+  padding: 5px;
+  margin: 0; }
 
 #bottom {
   height: 10vh;
@@ -344,5 +346,13 @@ h3 {
     background-position: -210px 0px; }
   to {
     background-position: -280px 0px; } }
+.kenaHit {
+  animation: kenaHit 0.4s steps(2) infinite; }
+
+@keyframes kenaHit {
+  from {
+    background-position: -280px -560px; }
+  to {
+    background-position: -140px -560px; } }
 
 /*# sourceMappingURL=style.css.map */

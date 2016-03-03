@@ -40,6 +40,8 @@ function collisionP1Wins($div1, $div2) {
     p1Hits += 1;
     $('#p1HitsHeader').html("P1 Hits: " + p1Hits);
     $('.p2LifeBar').width(168-(168/pointsToWin)*p1Hits);
+    $(".p2").addClass("kenaHit");
+    $('#boomSoundP1').trigger('play');
     $('.p1Ball').remove();
     $('h1').html("P1 LANDS A HIT!");
     $('h1').addClass('p1ActionAlert');
@@ -49,6 +51,7 @@ function collisionP1Wins($div1, $div2) {
         $('h1').removeClass('p1ActionAlert');
         $('#p1IHolder').removeClass('p1ActionAlert');
         $('#p2IHolder').removeClass('p1ActionAlert');
+        $(".p2").removeClass("kenaHit");
     }, 500);
   }
 }
@@ -56,6 +59,7 @@ function collisionP1Wins($div1, $div2) {
 function p1Wins(){
   if (p1Hits >= pointsToWin){
     $('h1').html("P1 WINS!");
+    $('#winSound').trigger('play');
     $('h1').addClass('p1ActionAlert');
     setTimeout(function () {
         $('h1').removeClass('p1ActionAlert');
@@ -89,6 +93,8 @@ function collisionP2Wins($div1, $div2) {
     p2Hits += 1;
     $('#p2HitsHeader').html("P2 Hits: " + p2Hits);
     $('.p1LifeBar').width(168-(168/pointsToWin)*p2Hits);
+    $(".p1").addClass("kenaHit");
+    $('#boomSoundP2').trigger('play');
     $('.p2Ball').remove();
     $('h1').html("P2 LANDS A HIT!");
     $('h1').addClass('p2ActionAlert');
@@ -98,6 +104,7 @@ function collisionP2Wins($div1, $div2) {
         $('h1').removeClass('p2ActionAlert');
         $('#p1IHolder').removeClass('p2ActionAlert');
         $('#p2IHolder').removeClass('p2ActionAlert');
+        $(".p1").removeClass("kenaHit");
     }, 500);
   }
 }
@@ -105,6 +112,7 @@ function collisionP2Wins($div1, $div2) {
 function p2Wins(){
   if (p2Hits >= pointsToWin){
     $('h1').html("P2 WINS!");
+    $('#winSound').trigger('play');
     $('h1').addClass('p2ActionAlert');
     setTimeout(function () {
         $('h1').removeClass('p2ActionAlert');
@@ -147,6 +155,7 @@ function collisionFireballs($div1, $div2) {
     $('.p1Ball').css("left", "+=0.2");
     $('.p2Ball').css("left", "+=0.2");
     $('h1').html("BOOMZ!!");
+    $('#boomSoundP1').trigger('play');
     $('h1').addClass('fireballCollisionAlert');
     $('#p1IHolder').addClass('fireballCollisionAlert');
     $('#p2IHolder').addClass('fireballCollisionAlert');
@@ -188,6 +197,8 @@ $(function() {
 
   alert('Knock your opponent out with a fireball, but first you have to store up enough energy points! If you attempt to shoot a fireball before you have '+ powerReady + ' stored points you will lose them all and have to start from zero! Duck the fireballs thrown at you by jumping out of the way, but remember if you jump your fireball jumps with you! First to score ' + pointsToWin + ' hits wins!')
 
+  $('#startSong').trigger('play');
+
   window.setInterval(checkDirection,100);
 
   window.setInterval(p1Wins,100);
@@ -227,6 +238,7 @@ $(function() {
   console.log("y key pressed!");
   p1Points = 0;
   $('.p1Ball').remove();
+  $('#hadokenShoutP1').trigger('play');
   $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
   $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
   $('.p1StoredPointsBar').html(" ");
@@ -368,6 +380,7 @@ $(function() {
   console.log("? key pressed!");
   p2Points = 0;
   $('.p2Ball').remove();
+  $('#hadokenShoutP2').trigger('play');
   $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
   $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
   $('.p2StoredPointsBar').html(" ");

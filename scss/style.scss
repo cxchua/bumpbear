@@ -113,7 +113,7 @@ h5 {
 .p1StoredPointsBar {
   height:10vh;
   width:8px; //168 is the final
-  background-color: lighten(red,20%);
+  background-color: darken(red,20%);
   font-size:2em;
   line-height:10vh;
   vertical-align: center;
@@ -136,7 +136,7 @@ h5 {
 .p1LifeBar {
   height:10vh;
   width:168px;
-  background-color: lighten(red,20%);
+  background-color:darken(red,20%);
 }
 
 #panelRight{
@@ -178,7 +178,7 @@ h5 {
 .p2StoredPointsBar {
   height:10vh;
   width:8px; //168 is the final
-  background-color: lighten(green,20%);
+  background-color: darken(green,10%);
   font-size:2em;
   line-height:10vh;
 }
@@ -200,7 +200,7 @@ h5 {
 .p2LifeBar {
   height:10vh;
   width:168px;
-  background-color: lighten(green,20%);
+  background-color: darken(green,10%);
 }
 
 #screen {
@@ -274,6 +274,8 @@ h2 {
 h3 {
   font-size: 1em;
   color: black;
+  padding:5px;
+  margin: 0;
 }
 
 #bottom {
@@ -404,4 +406,12 @@ h3 {
 @keyframes shootRightFreeze {
   from { background-position: -210px 0px }
   to { background-position: -280px 0px }
+}
+
+.kenaHit {
+          animation: kenaHit 0.4s steps(2) infinite;
+}
+@keyframes kenaHit {
+  from { background-position: -280px -560px }
+  to { background-position: -140px -560px }
 }
