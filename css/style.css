@@ -189,39 +189,40 @@ p {
   margin: 0 auto; }
 
 h1 {
-  height: 6vh;
+  height: 50vh;
+  min-height: 300px;
+  width: 700px;
   padding-top: 20vh;
   min-height: 130px;
-  width: 600px;
   margin: 0 auto;
   font-size: 3em;
   color: rgba(255, 255, 255, 0);
   background-color: rgba(255, 255, 255, 0); }
 
 .p1ActionAlert {
-  background-color: #cc0000;
+  background-color: rgba(255, 0, 0, 0.6);
   color: white; }
 
 .p1ActionMildAlert {
-  background-color: #ffcccc;
+  background-color: rgba(255, 0, 0, 0.5);
   color: white; }
 
 .p1BackgroundActionAlert {
   background: #cc0000; }
 
 .p2ActionAlert {
-  background-color: #004d00;
+  background-color: rgba(0, 255, 0, 0.6);
   color: white; }
 
 .p2ActionMildAlert {
-  background-color: #4dff4d;
+  background-color: rgba(0, 255, 0, 0.5);
   color: white; }
 
 .p2BackgroundActionAlert {
   background: #004d00; }
 
 .fireballCollisionAlert {
-  background-color: purple;
+  background-color: rgba(128, 0, 128, 0.5);
   color: white; }
 
 h2 {
@@ -327,5 +328,21 @@ h3 {
     background-position: 0px -320px; }
   to {
     background-position: -140px -320px; } }
+.hadokenHit {
+  animation: hadokenHit 0.5s steps(4) infinite; }
+
+@keyframes hadokenHit {
+  from {
+    background-position: 0px -400px; }
+  to {
+    background-position: -280px -400px; } }
+.shootRightFreeze {
+  animation: shootRightFreeze 2s steps(1) infinite; }
+
+@keyframes shootRightFreeze {
+  from {
+    background-position: -210px 0px; }
+  to {
+    background-position: -280px 0px; } }
 
 /*# sourceMappingURL=style.css.map */

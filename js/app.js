@@ -42,11 +42,11 @@ function collisionP1Wins($div1, $div2) {
     $('.p2LifeBar').width(168-(168/pointsToWin)*p1Hits);
     $('.p1Ball').remove();
     $('h1').html("P1 LANDS A HIT!");
-    $('h1').addClass('h1Alert');
+    $('h1').addClass('p1ActionAlert');
     $('#p1IHolder').addClass('p1ActionAlert');
     $('#p2IHolder').addClass('p1ActionAlert');
     setTimeout(function () {
-        $('h1').removeClass('h1Alert');
+        $('h1').removeClass('p1ActionAlert');
         $('#p1IHolder').removeClass('p1ActionAlert');
         $('#p2IHolder').removeClass('p1ActionAlert');
     }, 500);
@@ -91,11 +91,11 @@ function collisionP2Wins($div1, $div2) {
     $('.p1LifeBar').width(168-(168/pointsToWin)*p2Hits);
     $('.p2Ball').remove();
     $('h1').html("P2 LANDS A HIT!");
-    $('h1').addClass('h1Alert');
+    $('h1').addClass('p2ActionAlert');
     $('#p1IHolder').addClass('p2ActionAlert');
     $('#p2IHolder').addClass('p2ActionAlert');
     setTimeout(function () {
-        $('h1').removeClass('h1Alert');
+        $('h1').removeClass('p2ActionAlert');
         $('#p1IHolder').removeClass('p2ActionAlert');
         $('#p2IHolder').removeClass('p2ActionAlert');
     }, 500);
@@ -135,16 +135,33 @@ function collisionFireballs($div1, $div2) {
 
   if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {return false;}
   else {
-    $('.p1Ball').remove();
-    $('.p2Ball').remove();
+
+    $('.p1Ball').addClass('hadokenHit');
+    $('.p2Ball').addClass('hadokenHit');
+    $(".p1").removeClass("shootRight");
+    $(".p1").addClass("shootRightFreeze");
+    $(".p2").removeClass("shootRight");
+    $(".p2").addClass("shootRightFreeze");
+    clearInterval(x);
+    clearInterval(y);
+    $('.p1Ball').css("left", "+=0.2");
+    $('.p2Ball').css("left", "+=0.2");
     $('h1').html("BOOMZ!!");
-    $('h1').addClass('h1Alert');
+    $('h1').addClass('fireballCollisionAlert');
     $('#p1IHolder').addClass('fireballCollisionAlert');
     $('#p2IHolder').addClass('fireballCollisionAlert');
     setTimeout(function () {
-        $('h1').removeClass('h1Alert');
+        $('h1').removeClass('fireballCollisionAlert');
         $('#p1IHolder').removeClass('fireballCollisionAlert');
         $('#p2IHolder').removeClass('fireballCollisionAlert');
+        $('.p1Ball').removeClass('hadokenHit');
+        $('.p2Ball').removeClass('hadokenHit');
+        $('.p1Ball').remove();
+        $('.p2Ball').remove();
+        $(".p1").removeClass("shootRightFreeze");
+        $(".p1").addClass("steadyRight");
+        $(".p2").removeClass("shootRightFreeze");
+        $(".p2").addClass("steadyRight");
     }, 500);
   }
 }
@@ -219,13 +236,15 @@ $(function() {
   $('.p1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
   $('.p1Ball').addClass("hadokenRight");
   $('.p1Ball').css({top:0, left:0, position:'absolute'});
+  ballTime = 12;
+  ballInAir1 = 0;
   x = setInterval(plusDisplaceP1,ballTime);
   function plusDisplaceP1(){
     ballInAir1 ++;
     if (ballInAir1 <10) {
       return
     }
-    else if (ballInAir1 > 50) {
+    else if (ballInAir1 > 55) {
       clearInterval(x);
       $('.p1Ball').remove();
       $(".p1").removeClass("shootRight");
@@ -236,15 +255,15 @@ $(function() {
     // $('.p1Ball').css("left", "+=15");} REMOVED DUE TO checkDirection function
     else {$('.p1Ball').css("left", "+=15");}
     }
-  $('h1').html("P1 THROWS FIREBALL!");
-  $('h1').addClass('h1Alert');
-  $('#p1IHolder').addClass('p1ActionMildAlert');
-  $('#p2IHolder').addClass('p1ActionMildAlert');
-  setTimeout(function () {
-      $('h1').removeClass('h1Alert');
-      $('#p1IHolder').removeClass('p1ActionMildAlert');
-      $('#p2IHolder').removeClass('p1ActionMildAlert');
-  }, 500);
+  // $('h1').html("P1 THROWS FIREBALL!");
+  // $('h1').addClass('h1Alert');
+  // $('#p1IHolder').addClass('p1ActionMildAlert');
+  // $('#p2IHolder').addClass('p1ActionMildAlert');
+  // setTimeout(function () {
+  //     $('h1').removeClass('h1Alert');
+  //     $('#p1IHolder').removeClass('p1ActionMildAlert');
+  //     $('#p2IHolder').removeClass('p1ActionMildAlert');
+  // }, 500);
   console.log("y key done!");
   }
   //P1 y button with inadequate power - failed fast ball + lose power!
@@ -358,12 +377,14 @@ $(function() {
   $('.p2').append("<div class='p2Ball' height='5vh' width='3vw'></div>");
   $('.p2Ball').addClass("hadokenRight");
   $('.p2Ball').css({top:0, right:0, position:'absolute'});
+  ballTime = 12;
+  ballInAir2 = 0;
   y = setInterval(plusDisplaceP2,ballTime);
   function plusDisplaceP2(){
     ballInAir2 ++;
     if (ballInAir2 <10) {
       return}
-    if (ballInAir2 > 50) {
+    if (ballInAir2 > 55) {
       clearInterval(y);
       $('.p2Ball').remove();
       $(".p2").removeClass("shootRight");
@@ -374,15 +395,15 @@ $(function() {
     // $('.p2Ball').css("left", "-=15");}
     else {$('.p2Ball').css("left", "+=15");}
     }
-  $('h1').html("P2 THROWS FIREBALL!");
-  $('h1').addClass('h1Alert');
-  $('#p1IHolder').addClass('p2ActionMildAlert');
-  $('#p2IHolder').addClass('p2ActionMildAlert');
-  setTimeout(function () {
-      $('h1').removeClass('h1Alert');
-      $('#p1IHolder').removeClass('p2ActionMildAlert');
-      $('#p2IHolder').removeClass('p2ActionMildAlert');
-  }, 500);
+  // $('h1').html("P2 THROWS FIREBALL!");
+  // $('h1').addClass('h1Alert');
+  // $('#p1IHolder').addClass('p2ActionMildAlert');
+  // $('#p2IHolder').addClass('p2ActionMildAlert');
+  // setTimeout(function () {
+  //     $('h1').removeClass('h1Alert');
+  //     $('#p1IHolder').removeClass('p2ActionMildAlert');
+  //     $('#p2IHolder').removeClass('p2ActionMildAlert');
+  // }, 500);
   console.log("? key done!");
   }
   //P2 ; button with inadequate power - failed fast ball + lose power!
@@ -465,10 +486,5 @@ $(function() {
           }
         }
       }
-
-
-
-
-
   });
 });
