@@ -7,23 +7,24 @@ body {
 
 #p1IHolder {
   width: 350px;
-  height: 100vh;
+  height: 796px;
   border: 3px solid red; }
 
 #p1Instructions {
-  margin-top: 40vh; }
+  margin-top: 320px; }
 
 #p2IHolder {
   width: 350px;
-  height: 100vh;
+  height: 796px;
   border: 3px solid green; }
 
 #p2Instructions {
-  margin-top: 40vh; }
+  margin-top: 320px; }
 
 #gameSpace {
   display: inline-block;
   width: 710px;
+  height: 800px;
   margin: 0 auto; }
 
 ul {
@@ -51,7 +52,7 @@ h5 {
   vertical-align: middle; }
 
 #panel {
-  height: 20vh;
+  height: 160px;
   width: 700px;
   border: 1px solid black;
   margin: 0 auto;
@@ -63,38 +64,38 @@ h5 {
 
 #panelLeft {
   width: 348px;
-  height: 20vh;
+  height: 160px;
   display: flex;
   align-items: center; }
 
 #p1Holder {
-  height: 20vh;
+  height: 160px;
   width: 100px;
   display: table;
   overflow: hidden; }
 
 #p1Stats {
-  height: 20vh;
+  height: 160px;
   width: 244px;
   display: flex;
   align-items: center;
   flex-direction: column; }
 
 #p1StoredPoints {
-  height: 10vh;
+  height: 80px;
   width: 242px;
   display: flex;
   align-items: center;
   flex-direction: row; }
 
 #p1StoredPointsLabel {
-  height: 10vh;
+  height: 80px;
   width: 70px;
   display: table;
   overflow: hidden; }
 
 .p1StoredPointsBar {
-  height: 10vh;
+  height: 80px;
   width: 8px;
   background-color: #990000;
   font-size: 2em;
@@ -102,79 +103,79 @@ h5 {
   vertical-align: center; }
 
 #p1Life {
-  height: 10vh;
+  height: 80px;
   width: 242px;
   display: flex;
   align-items: center; }
 
 #p1LifeLabel {
-  height: 10vh;
+  height: 80px;
   width: 70px;
   display: table;
   overflow: hidden; }
 
 .p1LifeBar {
-  height: 10vh;
+  height: 80px;
   width: 168px;
   background-color: #990000; }
 
 #panelRight {
   width: 348px;
-  height: 20vh;
+  height: 160px;
   display: flex;
   align-items: center; }
 
 #p2Holder {
-  height: 20vh;
+  height: 160px;
   width: 100px;
   display: table;
   overflow: hidden; }
 
 #p2Stats {
-  height: 20vh;
+  height: 160px;
   width: 244px;
   display: flex;
   align-items: center;
   flex-direction: column; }
 
 #p2StoredPoints {
-  height: 10vh;
+  height: 80px;
   width: 242px;
   display: flex;
   align-items: center; }
 
 #p2StoredPointsLabel {
-  height: 10vh;
+  height: 80px;
   width: 70px;
   display: table;
   overflow: hidden; }
 
 .p2StoredPointsBar {
-  height: 10vh;
+  height: 80px;
   width: 8px;
   background-color: #004d00;
   font-size: 2em;
   line-height: 10vh; }
 
 #p2Life {
-  height: 10vh;
+  height: 80px;
   width: 242px;
   display: flex;
   align-items: center; }
 
 #p2LifeLabel {
-  height: 10vh;
+  height: 80px;
   width: 70px;
   display: table;
   overflow: hidden; }
 
 .p2LifeBar {
-  height: 10vh;
+  height: 80px;
   width: 168px;
   background-color: #004d00; }
 
 #screen {
-  height: 70vh;
+  height: 570px;
   min-height: 300px;
   width: 700px;
   border: 1px solid black;
@@ -234,10 +235,11 @@ h3 {
   font-size: 1em;
   color: black;
   padding: 5px;
-  margin: 0; }
+  margin: 0;
+  height: 16px; }
 
 #bottom {
-  height: 10vh;
+  height: 60px;
   width: 700px;
   border: 1px solid black;
   margin: 0 auto; }
