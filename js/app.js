@@ -53,6 +53,10 @@ function collisionP1Wins($div1, $div2) {
         $('#p2IHolder').removeClass('p1ActionAlert');
         $(".p2").removeClass("kenaHit");
     }, 500);
+      p2Points = 0;
+      $('#p2PointsHeader').html("P2 Stored Points: " + p2Points);
+      $('.p2StoredPointsBar').width(8+(160/powerReady)*p2Points);
+      $('.p2StoredPointsBar').html(" ");
   }
 }
 // Check if P1 wins
@@ -106,9 +110,13 @@ function collisionP2Wins($div1, $div2) {
         $('#p2IHolder').removeClass('p2ActionAlert');
         $(".p1").removeClass("kenaHit");
     }, 500);
+    p1Points = 0;
+    $('#p1PointsHeader').html("P1 Stored Points: " + p1Points);
+    $('.p1StoredPointsBar').width(8+(160/powerReady)*p1Points);
+    $('.p1StoredPointsBar').html(" ");
   }
 }
-// Check if P1 wins
+// Check if P2 wins
 function p2Wins(){
   if (p2Hits >= pointsToWin){
     $('h1').html("P2 WINS!");
@@ -188,16 +196,33 @@ function checkDirection() {
     }
 }
 
+function muteMusic(){
+    $('#startSong').prop('muted', true);
+    console.log("Mute pressed!");
+};
+
+function playMusic(){
+    $('#startSong').prop('muted', false);
+    console.log("Play pressed!");
+};
+
+
 $(function() {
   console.log("running!");
 
-  $('#p1Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you jump your fireball jumps with you <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 1:</b> <br /> R or T repeatedly to store energy points <br /> Y to shoot fireballs if stored points more than ' + powerReady + '<br /> A to go left, D to go right and W to jump')
+  $('#p1Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you are hit you will lose all stored energy points <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 1:</b> <br /> R or T repeatedly to store energy points <br /> Y to shoot fireballs if stored points more than ' + powerReady + '<br /> A to go left, D to go right and W to jump')
 
-  $('#p2Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you jump your fireball jumps with you <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 2:</b> <br /> < or > repeatedly to store energy points <br /> ? to shoot fireballs if stored points more than ' + powerReady + '<br /> LEFT to go left, RIGHT to go right and UP to jump')
+  $('#p2Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you are hit you will lose all stored energy points <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 2:</b> <br /> < or > repeatedly to store energy points <br /> ? to shoot fireballs if stored points more than ' + powerReady + '<br /> LEFT to go left, RIGHT to go right and UP to jump')
 
-  alert('Knock your opponent out with a fireball, but first you have to store up enough energy points! If you attempt to shoot a fireball before you have '+ powerReady + ' stored points you will lose them all and have to start from zero! Duck the fireballs thrown at you by jumping out of the way, but remember if you jump your fireball jumps with you! First to score ' + pointsToWin + ' hits wins!')
+  alert('Knock your opponent out with a fireball, but first you have to store up enough energy points! If you attempt to shoot a fireball before you have '+ powerReady + ' stored points you will lose them all and have to start from zero! Duck the fireballs thrown at you by jumping out of the way - if you are hit you will lose all stored energy points! First to score ' + pointsToWin + ' hits wins!')
 
   $('#startSong').trigger('play');
+
+  $('#round1Song').trigger('play');
+
+  $('#muteMusicButton').on('click',muteMusic);
+
+  $('#playMusicButton').on('click',playMusic);
 
   window.setInterval(checkDirection,100);
 
@@ -206,13 +231,13 @@ $(function() {
   window.setInterval(p2Wins,100);
 
   window.setInterval(function() {
-    collisionP1Wins($('.p2'), $('.p1Ball'));},70);
+    collisionP1Wins($('.p2'), $('.p1Ball'));},100);
 
    window.setInterval(function() {
-    collisionP2Wins($('.p1'), $('.p2Ball'));},70);
+    collisionP2Wins($('.p1'), $('.p2Ball'));},100);
 
     window.setInterval(function() {
-     collisionFireballs($('.p1Ball'), $('.p2Ball'));},5);
+     collisionFireballs($('.p1Ball'), $('.p2Ball'));},50);
 
   // CLICK BUTTONS
   $(window).keydown(function(e) {
