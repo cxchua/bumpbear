@@ -1,3 +1,4 @@
+var bearcount = 0;
 var x; //P1 fireball timerId
 var h1; //P1 height jumped timerId
 var blah1 = 0; //P1 hangtime variable
@@ -210,12 +211,6 @@ function playMusic(){
 $(function() {
   console.log("running!");
 
-  $('#p1Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you are hit you will lose all stored energy points <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 1:</b> <br /> R or T repeatedly to store energy points <br /> Y to shoot fireballs if stored points more than ' + powerReady + '<br /> A to go left, D to go right and W to jump')
-
-  $('#p2Instructions').html('<b>Instructions:</b><br />Store up enough energy points to shoot a fireball<br /> If you attempt to shoot a fireball before you have <br />'+ powerReady + ' stored points you will lose them all <br />Duck the fireballs thrown at you by jumping out of the way<br /> If you are hit you will lose all stored energy points <br > First to score ' + pointsToWin + ' hits wins<br /><br /><br /><br /><b>Player 2:</b> <br /> < or > repeatedly to store energy points <br /> ? to shoot fireballs if stored points more than ' + powerReady + '<br /> LEFT to go left, RIGHT to go right and UP to jump')
-
-  alert('Knock your opponent out with a fireball, but first you have to store up enough energy points! If you attempt to shoot a fireball before you have '+ powerReady + ' stored points you will lose them all and have to start from zero! Duck the fireballs thrown at you by jumping out of the way - if you are hit you will lose all stored energy points! First to score ' + pointsToWin + ' hits wins!')
-
   $('#startSong').trigger('play');
 
   $('#round1Song').trigger('play');
@@ -241,6 +236,52 @@ $(function() {
 
   // CLICK BUTTONS
   $(window).keydown(function(e) {
+    
+  if ((e.keyCode == 49)) {
+  console.log("1 key pressed!");
+  bearcount +=1;
+  $('#hadokenShoutP1').trigger('play');
+  $("#p1hole1").removeClass("steadyRight");
+  $("#p1hole1").addClass("shootRight");
+  clearInterval(x);
+  $('#p1hole1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
+  $('.p1Ball').addClass("hadokenRight");
+  $('.p1Ball').css({top:0, left:0, position:'absolute'});
+  ballTime = 120;
+  ballInAir1 = 0;
+  x = setInterval(plusDisplaceP1,ballTime);
+  function plusDisplaceP1(){
+    ballInAir1 ++;
+    if (ballInAir1 <10) {
+      return
+    }
+    else if (ballInAir1 > 55) {
+      clearInterval(x);
+      $('.p1Ball').remove();
+      $("#p1hole1").removeClass("shootRight");
+      $("#p1hole1").addClass("steadyRight");
+      ballInAir1 = 0;
+    }
+    // else if (($(".p1").offset().left)<=($(".p2").offset().left)){
+    // $('.p1Ball').css("left", "+=15");} REMOVED DUE TO checkDirection function
+    else {$('.p1Ball').css("left", "+=15");}
+    }
+  // $('h1').html("P1 THROWS FIREBALL!");
+  // $('h1').addClass('h1Alert');
+  // $('#p1IHolder').addClass('p1ActionMildAlert');
+  // $('#p2IHolder').addClass('p1ActionMildAlert');
+  // setTimeout(function () {
+  //     $('h1').removeClass('h1Alert');
+  //     $('#p1IHolder').removeClass('p1ActionMildAlert');
+  //     $('#p2IHolder').removeClass('p1ActionMildAlert');
+  // }, 500);
+  console.log("y key done!");
+  }
+    
+    
+    
+    
+    
   // P1 Codes Start //
   //P1 power-up keys - r & t
   if ((e.keyCode == 82)||(e.keyCode == 84)) {

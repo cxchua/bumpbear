@@ -5,28 +5,6 @@ body {
   text-align: center;
   justify-content: center; }
 
-#p1IHolder {
-  width: 350px;
-  height: 796px;
-  border: 3px solid red; }
-
-#p1Instructions {
-  margin-top: 320px; }
-
-#p2IHolder {
-  width: 350px;
-  height: 796px;
-  border: 3px solid green; }
-
-#p2Instructions {
-  margin-top: 320px; }
-
-#gameSpace {
-  display: inline-block;
-  width: 710px;
-  height: 800px;
-  margin: 0 auto; }
-
 ul {
   text-align: center;
   padding: 0;
@@ -39,6 +17,28 @@ li {
   margin: 0 auto;
   font-size: 1em; }
 
+h1 {
+  height: 410px;
+  width: 700px;
+  padding-top: 160px;
+  min-height: 130px;
+  margin: 0 auto;
+  font-size: 3em;
+  color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0); }
+
+h2 {
+  font-size: 1em;
+  color: white;
+  margin-top: -30px; }
+
+h3 {
+  font-size: 1em;
+  color: black;
+  padding: 5px;
+  margin: 0;
+  height: 16px; }
+  
 h4 {
   font-size: 2.2em;
   margin: 0 auto;
@@ -50,154 +50,40 @@ h5 {
   margin: 0 auto;
   display: table-cell;
   vertical-align: middle; }
+  
+p {
+  font-size: 0.8em;
+  margin: 0 auto; }
 
+#gameSpace {
+  display: inline-block;
+  width: 1000px;
+  height: 710px;
+  margin: 0 auto; }
+  
 #panel {
-  height: 160px;
-  width: 700px;
+  height: 100px;
+  width: 1000px;
   border: 1px solid black;
   margin: 0 auto;
   display: flex;
+  text-align: center;
+  justify-content:center;
   align-items: center; }
-
-.stats {
-  border: 1px solid black; }
-
-#panelLeft {
-  width: 348px;
-  height: 160px;
-  display: flex;
-  align-items: center; }
-
-#p1Holder {
-  height: 160px;
-  width: 100px;
-  display: table;
-  overflow: hidden; }
-
-#p1Stats {
-  height: 160px;
-  width: 244px;
-  display: flex;
-  align-items: center;
-  flex-direction: column; }
-
-#p1StoredPoints {
-  height: 80px;
-  width: 242px;
-  display: flex;
-  align-items: center;
-  flex-direction: row; }
-
-#p1StoredPointsLabel {
-  height: 80px;
-  width: 70px;
-  display: table;
-  overflow: hidden; }
-
-.p1StoredPointsBar {
-  height: 80px;
-  width: 8px;
-  background-color: #990000;
-  font-size: 2em;
-  line-height: 10vh;
-  vertical-align: center; }
-
-#p1Life {
-  height: 80px;
-  width: 242px;
-  display: flex;
-  align-items: center; }
-
-#p1LifeLabel {
-  height: 80px;
-  width: 70px;
-  display: table;
-  overflow: hidden; }
-
-.p1LifeBar {
-  height: 80px;
-  width: 168px;
-  background-color: #990000; }
-
-#panelRight {
-  width: 348px;
-  height: 160px;
-  display: flex;
-  align-items: center; }
-
-#p2Holder {
-  height: 160px;
-  width: 100px;
-  display: table;
-  overflow: hidden; }
-
-#p2Stats {
-  height: 160px;
-  width: 244px;
-  display: flex;
-  align-items: center;
-  flex-direction: column; }
-
-#p2StoredPoints {
-  height: 80px;
-  width: 242px;
-  display: flex;
-  align-items: center; }
-
-#p2StoredPointsLabel {
-  height: 80px;
-  width: 70px;
-  display: table;
-  overflow: hidden; }
-
-.p2StoredPointsBar {
-  height: 80px;
-  width: 8px;
-  background-color: #004d00;
-  font-size: 2em;
-  line-height: 10vh; }
-
-#p2Life {
-  height: 80px;
-  width: 242px;
-  display: flex;
-  align-items: center; }
-
-#p2LifeLabel {
-  height: 80px;
-  width: 70px;
-  display: table;
-  overflow: hidden; }
-
-.p2LifeBar {
-  height: 80px;
-  width: 168px;
-  background-color: #004d00; }
 
 #screen {
-  height: 570px;
-  min-height: 300px;
-  width: 700px;
+  height: 550px;
+  width: 1000px;
   border: 1px solid black;
   margin: 0 auto;
   position: relative;
   background-image: url("./background_throne.gif");
   background-size: 100% 100%;
-  background-repeat: no-repeat; }
-
-p {
-  font-size: 0.8em;
-  margin: 0 auto; }
-
-h1 {
-  height: 410px;
-  width: 700px;
-  padding-top: 160px;
-  min-height: 130px;
-  margin: 0 auto;
-  font-size: 3em;
-  color: rgba(255, 255, 255, 0);
-  background-color: rgba(255, 255, 255, 0); }
+  background-repeat: no-repeat; 
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .p1ActionAlert {
   background-color: rgba(255, 0, 0, 0.6);
@@ -225,42 +111,144 @@ h1 {
   background-color: rgba(128, 0, 128, 0.5);
   color: white; }
 
-h2 {
-  font-size: 1em;
-  color: white;
-  margin-top: -30px; }
-
-h3 {
-  font-size: 1em;
-  color: black;
-  padding: 5px;
-  margin: 0;
-  height: 16px; }
-
 #bottom {
-  height: 60px;
-  width: 700px;
+  height: 50px;
+  width: 1000px;
   border: 1px solid black;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content:center;
+  align-items: center; }
 
-.p1 {
+#p1side {
+  left:20px;
+  height: 550px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+    
+#p1hole1 {
   height: 80px;
   width: 70px;
   position: absolute;
-  top: 50vh;
+  top:15px;
   left: 20px;
   z-index: 200;
   background-image: url("./ken.png");
   margin: 0 auto; }
 
-.p2 {
+#p1hole2 {
   height: 80px;
   width: 70px;
   position: absolute;
-  top: 50vh;
-  left: 620px;
+  top:125px;
+  left: 20px;
+  z-index: 200;
   background-image: url("./ken.png");
-  z-index: 200; }
+  margin: 0 auto; }
+  
+#p1hole3 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:235px;
+  left: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  margin: 0 auto; }
+  
+#p1hole4 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:345px;
+  left: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  margin: 0 auto; }
+  
+#p1hole5 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:455px;
+  left: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  margin: 0 auto; }
+
+#p2side {
+  right:20px;
+  height: 550px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+      
+#p2hole1 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:15px;
+  right: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  transform: scaleX(-1);
+  margin: 0 auto; }
+
+#p2hole2 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:125px;
+  right: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  transform: scaleX(-1);
+  margin: 0 auto; }
+  
+#p2hole3 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:235px;
+  right: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  transform: scaleX(-1);
+  margin: 0 auto; }
+  
+#p2hole4 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:345px;
+  right: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  transform: scaleX(-1);
+  margin: 0 auto; }
+  
+#p2hole5 {
+  height: 80px;
+  width: 70px;
+  position: absolute;
+  top:455px;
+  right: 20px;
+  z-index: 200;
+  background-image: url("./ken.png");
+  transform: scaleX(-1);
+  margin: 0 auto; }
 
 .p1Ball {
   height: 80px;
