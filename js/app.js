@@ -144,9 +144,16 @@ $(function() {
   bearcount +=1;
   $('#hadokenShoutP1').trigger('play');
   clearInterval(x);
-  $('#p1hole1').append("<div class='p1Ball' height='5vh' width='3vw'></div>");
-  $('.p1Ball').addClass("hadokenRight");
-  $('.p1Ball').css({top:0, left:0, position:'absolute'});
+  var newbear = document.createElement("div")
+  newbear.setAttribute("id", bearcount);
+  newbear.setAttribute("class", "p1Ball hadokenRight");
+   // "height": '5vh',
+   // "width": '3vw',
+   // "top": 200,
+   // "left" :20, 
+   // "position" :'absolute'
+  
+  $('#p1hole1').append(newbear);
   ballInAir1 = 0;
   x = setInterval(plusDisplaceP1,checkfrequency);
   function plusDisplaceP1(){
