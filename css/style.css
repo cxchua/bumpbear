@@ -140,7 +140,7 @@ p {
   top:15px;
   left: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_bear1.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   margin: 0 auto; }
@@ -152,7 +152,7 @@ p {
   top:125px;
   left: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_bear2.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   margin: 0 auto; }
@@ -164,7 +164,7 @@ p {
   top:235px;
   left: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_bear3.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   margin: 0 auto; }
   
@@ -175,7 +175,7 @@ p {
   top:345px;
   left: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_bear4.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   margin: 0 auto; }
   
@@ -186,7 +186,7 @@ p {
   top:455px;
   left: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_bear5.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   margin: 0 auto; }
 
@@ -209,7 +209,7 @@ p {
   top:15px;
   right: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_tiger1.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   
   margin: 0 auto; }
@@ -221,7 +221,7 @@ p {
   top:125px;
   right: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_tiger2.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   
   margin: 0 auto; }
@@ -233,7 +233,7 @@ p {
   top:235px;
   right: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_tiger3.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   
   margin: 0 auto; }
@@ -245,7 +245,7 @@ p {
   top:345px;
   right: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_tiger4.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   
   margin: 0 auto; }
@@ -257,7 +257,7 @@ p {
   top:455px;
   right: 20px;
   z-index: 200;
-  background-image: url("./rock2.png");
+  background-image: url("./rock_tiger5.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;   
   margin: 0 auto; }
