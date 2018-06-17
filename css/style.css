@@ -77,7 +77,7 @@ p {
   border: 1px solid black;
   margin: 0 auto;
   position: relative;
-  background-image: url("./background_throne.gif");
+  background-image: url("./background_grass.png");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   display:flex;
@@ -140,7 +140,9 @@ p {
   top:15px;
   left: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
   margin: 0 auto; }
 
 #p1hole2 {
@@ -150,7 +152,9 @@ p {
   top:125px;
   left: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
   margin: 0 auto; }
   
 #p1hole3 {
@@ -160,8 +164,9 @@ p {
   top:235px;
   left: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  margin: 0 auto; }
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   margin: 0 auto; }
   
 #p1hole4 {
   height: 80px;
@@ -170,8 +175,9 @@ p {
   top:345px;
   left: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  margin: 0 auto; }
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   margin: 0 auto; }
   
 #p1hole5 {
   height: 80px;
@@ -180,8 +186,9 @@ p {
   top:455px;
   left: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  margin: 0 auto; }
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   margin: 0 auto; }
 
 #p2side {
   right:20px;
@@ -202,8 +209,9 @@ p {
   top:15px;
   right: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  transform: scaleX(-1);
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   
   margin: 0 auto; }
 
 #p2hole2 {
@@ -213,8 +221,9 @@ p {
   top:125px;
   right: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  transform: scaleX(-1);
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   
   margin: 0 auto; }
   
 #p2hole3 {
@@ -224,8 +233,9 @@ p {
   top:235px;
   right: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  transform: scaleX(-1);
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   
   margin: 0 auto; }
   
 #p2hole4 {
@@ -235,8 +245,9 @@ p {
   top:345px;
   right: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  transform: scaleX(-1);
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   
   margin: 0 auto; }
   
 #p2hole5 {
@@ -246,8 +257,9 @@ p {
   top:455px;
   right: 20px;
   z-index: 200;
-  background-image: url("./ken.png");
-  transform: scaleX(-1);
+  background-image: url("./rock2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;   
   margin: 0 auto; }
 
 .p1Ball {
